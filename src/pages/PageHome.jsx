@@ -67,27 +67,31 @@ export default function PageHome({ navigate }) {
       const tl = gsap.timeline();
       tl.fromTo(".hero-badge",
           { opacity: 0, x: 55 },
-          { opacity: 1, x: 0, duration: 0.7, ease: "back.out(1.4)" })
+          { opacity: 1, x: 0, duration: 0.95, ease: "back.out(1.4)" })
         .fromTo(".hero-word",
           { opacity: 0, x: 80 },
-          { opacity: 1, x: 0, duration: 0.65, stagger: 0.1, ease: "back.out(1.5)" },
-          "-=0.45")
+          { opacity: 1, x: 0, duration: 0.9, stagger: 0.15, ease: "back.out(1.5)" },
+          "-=0.5")
         .fromTo(".hero-sub",
           { opacity: 0, x: 50 },
-          { opacity: 1, x: 0, duration: 0.6, ease: "back.out(1.3)" },
-          "-=0.35")
+          { opacity: 1, x: 0, duration: 0.8, ease: "back.out(1.3)" },
+          "-=0.4")
         .fromTo(".hero-btns",
           { opacity: 0, x: 40 },
-          { opacity: 1, x: 0, duration: 0.55, ease: "back.out(1.2)" },
-          "-=0.3")
+          { opacity: 1, x: 0, duration: 0.75, ease: "back.out(1.2)" },
+          "-=0.35")
         .fromTo(".hero-stats",
           { opacity: 0, x: 30 },
-          { opacity: 1, x: 0, duration: 0.5, ease: "back.out(1.1)" },
-          "-=0.25")
+          { opacity: 1, x: 0, duration: 0.65, ease: "back.out(1.1)" },
+          "-=0.3")
         .fromTo(".hero-img",
           { opacity: 0, x: 40, scale: 0.96 },
-          { opacity: 1, x: 0, scale: 1, duration: 0.8, ease: "back.out(1.2)" },
-          "-=0.8");
+          { opacity: 1, x: 0, scale: 1, duration: 1.0, ease: "back.out(1.2)" },
+          "-=0.9")
+        // Dot bounces forever after slide-in completes
+        .to(".hero-dot",
+          { y: -6, duration: 0.65, ease: "sine.inOut", yoyo: true, repeat: -1 },
+          "+=0.1");
     }, heroRef);
     return () => ctx.revert();
   }, []);
@@ -112,7 +116,9 @@ export default function PageHome({ navigate }) {
               <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 overflow-hidden">
                 <span className="hero-word inline-block">Architecting</span>{" "}
                 <span className="hero-word inline-block text-green-400">Global</span>{" "}
-                <span className="hero-word inline-block text-green-400">Futures.</span>
+                <span className="hero-word inline-block text-green-400">
+                  Futures<span className="hero-dot inline-block">.</span>
+                </span>
               </h1>
               <p className="hero-sub text-xl text-slate-300 mb-8 font-light leading-relaxed max-w-2xl">
                 Premium English Coaching and Ethical New Zealand Education Consultancy — engineered by industry professionals who have walked the path themselves.
