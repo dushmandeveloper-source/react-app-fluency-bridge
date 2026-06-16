@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import anime from "animejs";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PageHome from "./pages/PageHome";
@@ -9,6 +10,7 @@ import PageContact from "./pages/PageContact";
 
 export default function App() {
   const [page, setPage] = useState("home");
+  const mainRef = useRef(null);
 
   const pageTitles = {
     home:        "Fluency Bridge Global Limited | English Coaching & NZ Education",
@@ -20,6 +22,18 @@ export default function App() {
 
   useEffect(() => {
     document.title = pageTitles[page] || pageTitles.home;
+  }, [page]);
+
+  // Page transition — fade + slight rise on every page change
+  useEffect(() => {
+    if (!mainRef.current) return;
+    anime({
+      targets: mainRef.current,
+      opacity: [0, 1],
+      translateY: [18, 0],
+      duration: 420,
+      easing: "easeOutQuart",
+    });
   }, [page]);
 
   function navigate(id) {
@@ -38,7 +52,7 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-700" style={{ fontFamily: "Inter, sans-serif" }}>
       <Navbar current={page} navigate={navigate} />
-      <main className="flex-grow pt-20">{pages[page]}</main>
+      <main ref={mainRef} className="flex-grow pt-20">{pages[page]}</main>
       <Footer navigate={navigate} />
     </div>
   );

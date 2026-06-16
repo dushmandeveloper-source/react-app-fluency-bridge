@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
 import { PAGES } from "../data/constants";
 
 /* Nav is split into two visual groups separated by a thin divider:
@@ -9,6 +10,16 @@ const SERVICE_IDS  = ["english", "consultancy"];
 export default function Navbar({ current, navigate }) {
   const [scrolled, setScrolled]   = useState(false);
   const [menuOpen, setMenuOpen]   = useState(false);
+  const navRef = useRef(null);
+
+  // Slide down on first load
+  useEffect(() => {
+    gsap.fromTo(
+      navRef.current,
+      { y: -72, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" }
+    );
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -29,6 +40,7 @@ export default function Navbar({ current, navigate }) {
 
   return (
     <nav
+      ref={navRef}
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled ? "shadow-sm" : ""
       }`}

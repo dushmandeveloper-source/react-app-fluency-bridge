@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 import Reveal from "../components/Reveal";
 import {
   BuildingIcon,
@@ -58,10 +60,43 @@ const ROADMAP = [
 ];
 
 export default function PageHome({ navigate }) {
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      tl.fromTo(".hero-badge",
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.55 })
+        .fromTo(".hero-word",
+          { opacity: 0, y: 55, skewY: 5 },
+          { opacity: 1, y: 0, skewY: 0, duration: 0.65, stagger: 0.09 },
+          "-=0.25")
+        .fromTo(".hero-sub",
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.55 },
+          "-=0.35")
+        .fromTo(".hero-btns",
+          { opacity: 0, y: 14 },
+          { opacity: 1, y: 0, duration: 0.45 },
+          "-=0.3")
+        .fromTo(".hero-stats",
+          { opacity: 0 },
+          { opacity: 1, duration: 0.4 },
+          "-=0.2")
+        .fromTo(".hero-img",
+          { opacity: 0, scale: 0.93 },
+          { opacity: 1, scale: 1, duration: 0.85, ease: "power2.out" },
+          "-=0.75");
+    }, heroRef);
+    return () => ctx.revert();
+  }, []);
+
   return (
     <div>
       {/* Hero */}
       <section
+        ref={heroRef}
         className="relative text-white py-28 lg:py-36 overflow-hidden"
         style={{
           background:
@@ -71,57 +106,54 @@ export default function PageHome({ navigate }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div>
-              <Reveal>
-                <span className="inline-block py-1 px-3 rounded-full bg-green-900/50 border border-green-700 text-green-200 text-sm font-semibold mb-6 tracking-wide">
-                  New Zealand Based Global Enterprise
-                </span>
-                <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
-                  Architecting{" "}
-                  <span className="text-green-400">Global Futures.</span>
-                </h1>
-                <p className="text-xl text-slate-300 mb-8 font-light leading-relaxed max-w-2xl">
-                  Premium English Coaching and Ethical New Zealand Education Consultancy — engineered by industry professionals who have walked the path themselves.
-                </p>
-                <div className="flex flex-wrap gap-4 mb-10">
-                  <button
-                    onClick={() => navigate("english")}
-                    className="bg-green-700 hover:bg-green-600 text-white px-8 py-3.5 rounded-full font-semibold transition-all shadow-[0_0_20px_rgba(22,163,74,0.4)] hover:shadow-[0_0_30px_rgba(22,163,74,0.6)]"
-                  >
-                    Explore Coaching
-                  </button>
-                  <button
-                    onClick={() => navigate("consultancy")}
-                    className="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-8 py-3.5 rounded-full font-semibold transition-all"
-                  >
-                    NZ Consultancy
-                  </button>
-                </div>
-                <dl className="flex flex-wrap gap-8 text-sm">
-                  {[
-                    ["Placement fee", "Zero, to students"],
-                    ["Method", "Natural English"],
-                    ["Based in", "New Zealand"],
-                  ].map(([k, v]) => (
-                    <div key={k}>
-                      <dt className="font-mono uppercase tracking-widest text-slate-500 text-xs mb-0.5">{k}</dt>
-                      <dd className="font-semibold text-white">{v}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </Reveal>
+              <span className="hero-badge inline-block py-1 px-3 rounded-full bg-green-900/50 border border-green-700 text-green-200 text-sm font-semibold mb-6 tracking-wide">
+                New Zealand Based Global Enterprise
+              </span>
+              <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 overflow-hidden">
+                <span className="hero-word inline-block">Architecting</span>{" "}
+                <span className="hero-word inline-block text-green-400">Global</span>{" "}
+                <span className="hero-word inline-block text-green-400">Futures.</span>
+              </h1>
+              <p className="hero-sub text-xl text-slate-300 mb-8 font-light leading-relaxed max-w-2xl">
+                Premium English Coaching and Ethical New Zealand Education Consultancy — engineered by industry professionals who have walked the path themselves.
+              </p>
+              <div className="hero-btns flex flex-wrap gap-4 mb-10">
+                <button
+                  onClick={() => navigate("english")}
+                  className="bg-green-700 hover:bg-green-600 text-white px-8 py-3.5 rounded-full font-semibold transition-all shadow-[0_0_20px_rgba(22,163,74,0.4)] hover:shadow-[0_0_30px_rgba(22,163,74,0.6)]"
+                >
+                  Explore Coaching
+                </button>
+                <button
+                  onClick={() => navigate("consultancy")}
+                  className="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-8 py-3.5 rounded-full font-semibold transition-all"
+                >
+                  NZ Consultancy
+                </button>
+              </div>
+              <dl className="hero-stats flex flex-wrap gap-8 text-sm">
+                {[
+                  ["Placement fee", "Zero, to students"],
+                  ["Method", "Natural English"],
+                  ["Based in", "New Zealand"],
+                ].map(([k, v]) => (
+                  <div key={k}>
+                    <dt className="font-mono uppercase tracking-widest text-slate-500 text-xs mb-0.5">{k}</dt>
+                    <dd className="font-semibold text-white">{v}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
 
             <div className="hidden lg:block">
-              <Reveal delay={200}>
-                <div className="img-float">
-                  <img
-                    src="/banner.jpg"
-                    alt="University campus"
-                    className="max-w-sm mx-auto rounded-2xl shadow-2xl opacity-90 hover:opacity-100 transition-opacity"
-                    style={{ aspectRatio: "4/5", width: "100%", objectFit: "cover", display: "block" }}
-                  />
-                </div>
-              </Reveal>
+              <div className="hero-img img-float">
+                <img
+                  src="/banner.jpg"
+                  alt="University campus"
+                  className="max-w-sm mx-auto rounded-2xl shadow-2xl opacity-90 hover:opacity-100 transition-opacity"
+                  style={{ aspectRatio: "4/5", width: "100%", objectFit: "cover", display: "block" }}
+                />
+              </div>
             </div>
           </div>
         </div>
