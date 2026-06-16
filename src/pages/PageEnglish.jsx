@@ -66,7 +66,7 @@ export default function PageEnglish({ navigate }) {
               >
                 executing
               </span>{" "}
-              it.
+              it<span className="bounce-dot">.</span>
             </h1>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
               Master natural communication, intonation, and rhythm. No rigid rules. Just absolute fluency.

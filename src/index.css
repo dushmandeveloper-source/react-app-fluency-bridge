@@ -32,3 +32,13 @@ select option {
   50%       { transform: translateY(-10px); }
 }
 .img-float { animation: float-img 5.5s ease-in-out infinite; }
+
+/* Bouncing punctuation dot — shared across all hero headings */
+@keyframes bounce-dot {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-7px); }
+}
+.bounce-dot {
+  display: inline-block;
+  animation: bounce-dot 1.3s ease-in-out infinite;
+}

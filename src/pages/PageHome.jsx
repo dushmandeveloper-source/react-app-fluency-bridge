@@ -117,7 +117,7 @@ export default function PageHome({ navigate }) {
                 <span className="hero-word inline-block">Architecting</span>{" "}
                 <span className="hero-word inline-block text-green-400">Global</span>{" "}
                 <span className="hero-word inline-block text-green-400">
-                  Futures<span className="hero-dot inline-block">.</span>
+                  Futures<span className="hero-dot bounce-dot">.</span>
                 </span>
               </h1>
               <p className="hero-sub text-xl text-slate-300 mb-8 font-light leading-relaxed max-w-2xl">

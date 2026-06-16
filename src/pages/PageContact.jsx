@@ -91,7 +91,7 @@ export default function PageContact() {
           <Reveal>
             <p className="text-sm font-bold uppercase tracking-wider text-green-400 mb-4">Get In Touch</p>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-5">
-              Let's plan your crossing.
+              Let's plan your crossing<span className="bounce-dot">.</span>
             </h1>
             <p className="text-xl text-slate-300 leading-relaxed mb-10 max-w-2xl mx-auto">
               Tell us where you want to go. Whether it's natural English fluency or a zero-fee pathway to a New Zealand university, we'll map the route.
