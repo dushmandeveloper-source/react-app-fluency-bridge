@@ -123,7 +123,7 @@ export default function PageTeam() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {ADVISORS.map((role, i) => (
               <Reveal key={i} delay={i * 60}>
-                <div className={`card-float-${i} bg-white rounded-2xl p-6 shadow-sm border border-slate-100 text-center`}>
+                <div className={`card-float-${i} bg-white rounded-2xl p-6 border border-slate-100 text-center`} style={{ boxShadow: "0 4px 24px rgba(22,163,74,0.15), 0 1px 4px rgba(0,0,0,0.05)" }}>
                   <div className="w-20 h-20 rounded-full mx-auto mb-4 bg-slate-100 flex items-center justify-center border-4 border-white shadow">
                     <UserIcon className="w-9 h-9 text-slate-400" />
                   </div>
