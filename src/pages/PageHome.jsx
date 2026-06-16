@@ -232,7 +232,7 @@ export default function PageHome({ navigate }) {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {VALUES.map((v, i) => (
               <Reveal key={v.num} delay={i * 80}>
-                <div className={`card-float-${i} bg-white rounded-2xl p-6 border border-slate-100 shadow-sm h-full`}>
+                <div className={`card-float-${i} bg-white rounded-2xl p-6 border border-slate-100 h-full`} style={{ boxShadow: "0 4px 24px rgba(22,163,74,0.15), 0 1px 4px rgba(0,0,0,0.05)" }}>
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-500 flex-shrink-0">
                       <v.Icon className="w-5 h-5" />
