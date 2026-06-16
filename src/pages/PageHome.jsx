@@ -64,30 +64,30 @@ export default function PageHome({ navigate }) {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      const tl = gsap.timeline();
       tl.fromTo(".hero-badge",
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.55 })
+          { opacity: 0, x: 55 },
+          { opacity: 1, x: 0, duration: 0.7, ease: "back.out(1.4)" })
         .fromTo(".hero-word",
-          { opacity: 0, y: 55, skewY: 5 },
-          { opacity: 1, y: 0, skewY: 0, duration: 0.65, stagger: 0.09 },
-          "-=0.25")
+          { opacity: 0, x: 80 },
+          { opacity: 1, x: 0, duration: 0.65, stagger: 0.1, ease: "back.out(1.5)" },
+          "-=0.45")
         .fromTo(".hero-sub",
-          { opacity: 0, y: 18 },
-          { opacity: 1, y: 0, duration: 0.55 },
+          { opacity: 0, x: 50 },
+          { opacity: 1, x: 0, duration: 0.6, ease: "back.out(1.3)" },
           "-=0.35")
         .fromTo(".hero-btns",
-          { opacity: 0, y: 14 },
-          { opacity: 1, y: 0, duration: 0.45 },
+          { opacity: 0, x: 40 },
+          { opacity: 1, x: 0, duration: 0.55, ease: "back.out(1.2)" },
           "-=0.3")
         .fromTo(".hero-stats",
-          { opacity: 0 },
-          { opacity: 1, duration: 0.4 },
-          "-=0.2")
+          { opacity: 0, x: 30 },
+          { opacity: 1, x: 0, duration: 0.5, ease: "back.out(1.1)" },
+          "-=0.25")
         .fromTo(".hero-img",
-          { opacity: 0, scale: 0.93 },
-          { opacity: 1, scale: 1, duration: 0.85, ease: "power2.out" },
-          "-=0.75");
+          { opacity: 0, x: 40, scale: 0.96 },
+          { opacity: 1, x: 0, scale: 1, duration: 0.8, ease: "back.out(1.2)" },
+          "-=0.8");
     }, heroRef);
     return () => ctx.revert();
   }, []);
