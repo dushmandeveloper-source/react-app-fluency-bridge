@@ -91,7 +91,7 @@ export default function PageConsultancy({ navigate }) {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           {STAGES.map((s, i) => (
             <Reveal key={s.n} delay={i * 100}>
-              <div className="flex flex-col md:flex-row gap-6 items-start bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex flex-col md:flex-row gap-6 items-start bg-white p-6 rounded-2xl border border-slate-100 transition-shadow" style={{ boxShadow: "0 4px 24px rgba(22,163,74,0.15), 0 1px 4px rgba(0,0,0,0.05)" }}>
                 <div className="w-16 h-16 flex-shrink-0 bg-slate-700 text-white rounded-xl flex items-center justify-center shadow-md">
                   <s.Icon className="w-8 h-8" />
                 </div>
