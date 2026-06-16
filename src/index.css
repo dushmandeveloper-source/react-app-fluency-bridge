@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+select option {
+  background: #fff;
+  color: #1e293b;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-9px); }
+}
+
+/* Staggered float classes — applied to card inner wrappers so they don't
+   conflict with Reveal's entrance translate on the outer div */
+.card-float-0 { animation: float 5.0s ease-in-out 0.0s infinite; }
+.card-float-1 { animation: float 5.2s ease-in-out 0.9s infinite; }
+.card-float-2 { animation: float 5.4s ease-in-out 1.8s infinite; }
+.card-float-3 { animation: float 5.0s ease-in-out 2.7s infinite; }
+.card-float-4 { animation: float 5.2s ease-in-out 1.3s infinite; }
+.card-float-5 { animation: float 5.4s ease-in-out 0.6s infinite; }
+
+/* Image placeholder cards — gentle independent float */
+@keyframes float-img {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+.img-float { animation: float-img 5.5s ease-in-out infinite; }
