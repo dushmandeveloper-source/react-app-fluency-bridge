@@ -30,8 +30,8 @@ export default function App() {
     anime({
       targets: mainRef.current,
       opacity: [0, 1],
-      translateY: [18, 0],
-      duration: 420,
+      translateY: [28, 0],
+      duration: 750,
       easing: "easeOutQuart",
     });
   }, [page]);
