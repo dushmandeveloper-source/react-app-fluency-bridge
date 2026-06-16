@@ -18,7 +18,7 @@ export function useReveal() {
           obs.unobserve(el);
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -6% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -4% 0px" }
     );
     obs.observe(el);
     return () => obs.disconnect();
