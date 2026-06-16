@@ -15,7 +15,7 @@ export default function PageTeam() {
           <Reveal>
             <p className="text-sm font-bold uppercase tracking-wider text-green-400 mb-3">About Us</p>
             <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
-              People behind the bridge<span className="bounce-dot">.</span>
+              People behind the bridge<span className="bounce-dot" style={{ display: "inline-block" }}>.</span>
             </h1>
             <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
               Engineering precision, applied to human potential — driven by lived experience and an unwavering commitment to ethical guidance.
