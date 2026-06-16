@@ -28,10 +28,10 @@ export default function Navbar({ current, navigate }) {
   }, []);
 
   function linkClass(id) {
-    const base = "text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap";
+    const base = "text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-300 ease-out whitespace-nowrap";
     return current === id
       ? `${base} bg-green-700 text-white shadow-[0_0_14px_rgba(22,163,74,0.55)]`
-      : `${base} text-slate-500 hover:text-slate-900 hover:bg-slate-100`;
+      : `${base} text-slate-500 hover:text-green-700 hover:bg-green-50 hover:shadow-[0_0_10px_rgba(22,163,74,0.2)]`;
   }
 
   const primaryPages  = PAGES.filter((p) => PRIMARY_IDS.includes(p.id));
@@ -86,7 +86,11 @@ export default function Navbar({ current, navigate }) {
             ))}
 
             {/* Thin vertical divider */}
-            <span className="mx-2 h-4 w-px bg-slate-200 rounded-full" aria-hidden="true" />
+            <span
+              className="mx-2 h-4 w-px rounded-full"
+              style={{ background: "#16a34a", boxShadow: "0 0 6px rgba(22,163,74,0.55), 0 0 12px rgba(22,163,74,0.25)" }}
+              aria-hidden="true"
+            />
 
             {/* Group 2: English Coaching · NZ Academic Bridge */}
             {servicePages.map((p) => (
