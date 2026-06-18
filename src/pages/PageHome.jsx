@@ -104,16 +104,16 @@ function AnimatedHeroText() {
         .add({
           targets: ".ml9 .letter",
           scale: [0, 1],
-          duration: 1500,
-          elasticity: 600,
-          delay: (el, i) => 45 * (i + 1),
+          duration: 2200,
+          elasticity: 500,
+          delay: (el, i) => 90 * (i + 1),
         })
         .add({
           targets: ".ml9",
           opacity: 0,
-          duration: 1000,
+          duration: 1200,
           easing: "easeOutExpo",
-          delay: 1000,
+          delay: 1800,
         })
         .add({
           targets: ".ml9 .letter",
