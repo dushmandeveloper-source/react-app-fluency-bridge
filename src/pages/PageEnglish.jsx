@@ -1,4 +1,9 @@
 import Reveal from "../components/Reveal";
+import UnderConstruction from "../components/UnderConstruction";
+
+// Temporary: show the under-construction placeholder instead of the real
+// page content below. Flip back to true to restore it.
+const SHOW_REAL_CONTENT = false;
 
 const TIERS = [
   {
@@ -37,6 +42,8 @@ const TECH = [
 ];
 
 export default function PageEnglish({ navigate }) {
+  if (!SHOW_REAL_CONTENT) return <UnderConstruction pageName="Fluency Bridge Coaching" />;
+
   return (
     <div>
       {/* Hero */}

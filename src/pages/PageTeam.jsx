@@ -1,9 +1,16 @@
 import Reveal from "../components/Reveal";
 import { EyeIcon, FlagIcon, UserIcon, ShieldCheckIcon } from "../components/icons";
+import UnderConstruction from "../components/UnderConstruction";
+
+// Temporary: show the under-construction placeholder instead of the real
+// page content below. Flip back to true to restore it.
+const SHOW_REAL_CONTENT = false;
 
 const ADVISORS = Array(6).fill("Academic Strategist");
 
 export default function PageTeam() {
+  if (!SHOW_REAL_CONTENT) return <UnderConstruction pageName="About Us" />;
+
   return (
     <div>
       {/* Header */}

@@ -8,11 +8,18 @@ import {
   MapPinIcon,
   LinkIcon,
 } from "../components/icons";
+import UnderConstruction from "../components/UnderConstruction";
+
+// Temporary: show the under-construction placeholder instead of the real
+// page content below. Flip back to true to restore it.
+const SHOW_REAL_CONTENT = false;
 
 const inputBase =
   "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-green-700/40 focus:border-green-700 transition";
 
 export default function PageContact() {
+  if (!SHOW_REAL_CONTENT) return <UnderConstruction pageName="Contact Us" />;
+
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", phone: "", service: "", message: "" });
 
