@@ -1,71 +1,37 @@
-import { useEffect, useRef } from "react";
-import { loadAnime } from "../lib/loadAnime";
 import FloatingShape from "./FloatingShape";
 import Badge from "./Badge";
 
-// Big title with a word-by-word slide + skew reveal that loops gently —
-// deliberately different motion from the Home hero's per-letter pop.
+// Big title with a 3D rise-in stagger (line 1) followed by a continuously
+// shimmering gradient sweep (line 2) — pure CSS so the motion always plays,
+// and deliberately different from the Home hero's per-letter pop animation.
 function ConstructionTitle({ line1, line2 }) {
-  const ref = useRef(null);
-
-  useEffect(() => {
-    let anim;
-    let cancelled = false;
-
-    loadAnime().then((anime) => {
-      if (cancelled || !anime || !ref.current) return;
-      const words = ref.current.querySelectorAll(".cword");
-      anim = anime
-        .timeline({ loop: true })
-        .add({
-          targets: words,
-          translateY: [40, 0],
-          skewX: [8, 0],
-          opacity: [0, 1],
-          duration: 900,
-          easing: "easeOutCubic",
-          delay: anime.stagger(120),
-        })
-        .add({
-          targets: words,
-          opacity: [1, 0.35],
-          duration: 900,
-          easing: "easeInOutSine",
-          delay: anime.stagger(60),
-        }, "+=1600")
-        .add({
-          targets: words,
-          opacity: 1,
-          translateY: 0,
-          skewX: 0,
-          duration: 1,
-        })
-        .add({
-          targets: words,
-          translateY: 40,
-          skewX: 8,
-          opacity: 0,
-          duration: 1,
-        });
-    });
-
-    return () => {
-      cancelled = true;
-      if (anim) anim.pause();
-    };
-  }, []);
-
-  const renderWords = (text) =>
+  const renderWords = (text, startDelay) =>
     text.split(" ").map((word, i) => (
-      <span key={i} className="cword inline-block mr-3">
+      <span
+        key={i}
+        className="animate-construction-rise mr-3"
+        style={{ animationDelay: `${startDelay + i * 0.12}s` }}
+      >
         {word}
       </span>
     ));
 
+  const line1Words = line1.split(" ").length;
+
   return (
-    <h1 ref={ref} className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.15] mb-6">
-      <span className="block text-white">{renderWords(line1)}</span>
-      <span className="block font-serif italic font-normal text-lime mt-2">{renderWords(line2)}</span>
+    <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.15] mb-6">
+      <span className="block text-white">{renderWords(line1, 0.1)}</span>
+      <span className="block font-serif italic font-normal mt-2">
+        {line2.split(" ").map((word, i) => (
+          <span
+            key={i}
+            className="animate-construction-rise text-shimmer mr-3"
+            style={{ animationDelay: `${0.1 + (line1Words + i) * 0.12}s` }}
+          >
+            {word}
+          </span>
+        ))}
+      </span>
     </h1>
   );
 }
