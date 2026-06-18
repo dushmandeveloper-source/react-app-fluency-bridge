@@ -93,6 +93,10 @@ select option {
   0%, 100% { transform: scale(1); opacity: 1; text-shadow: 0 0 0 rgba(140, 198, 63, 0); }
   50% { transform: scale(1.08); opacity: 0.9; text-shadow: 0 0 16px rgba(140, 198, 63, 0.9); }
 }
+@keyframes logo-glow {
+  0%, 100% { filter: drop-shadow(0 0 4px rgba(255,255,255,0.35)) drop-shadow(0 0 8px rgba(255,255,255,0.15)); }
+  50% { filter: drop-shadow(0 0 14px rgba(255,255,255,0.95)) drop-shadow(0 0 28px rgba(255,255,255,0.55)); }
+}
 
 .animate-fade-in-up { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 .animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
@@ -100,6 +104,7 @@ select option {
 .animate-pulse-ring { animation: pulse-ring 2s infinite; }
 .animate-ping-short:hover { animation: ping-short 0.8s ease-in-out infinite; }
 .animate-cursor-blink { animation: cursorBlink 1s infinite; }
+.animate-logo-glow { animation: logo-glow 1.8s ease-in-out infinite; }
 .animate-text-pulse-scale { display: inline-block; animation: text-pulse-scale 1.4s ease-in-out infinite; }
 
 .delay-100 { animation-delay: 0.1s; }
