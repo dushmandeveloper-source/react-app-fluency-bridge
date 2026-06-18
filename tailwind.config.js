@@ -3,7 +3,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      fontFamily: { sans: ["Inter", "sans-serif"] },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+        serif: ["Playfair Display", "serif"],
+      },
       colors: {
         brand: {
           dark: "#0f172a",
@@ -11,6 +14,13 @@ export default {
           accent: "#16a34a",
           light: "#f0fdf4",
         },
+        navy: {
+          DEFAULT: "#092046",
+          deep: "#061630",
+          mid: "#10326b",
+          border: "#1a478f",
+        },
+        lime: "#8cc63f",
       },
       boxShadow: {
         glass: "0 4px 30px rgba(0,0,0,0.1)",
