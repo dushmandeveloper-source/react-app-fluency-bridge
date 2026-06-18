@@ -4,8 +4,8 @@ import { PAGES, CONTACTS } from "../data/constants";
 import { PhoneIcon } from "./icons";
 
 /* Nav is split into two visual groups separated by a thin divider:
-   [Home · About Us]  |  [English Coaching · NZ Academic Bridge] */
-const PRIMARY_IDS = ["home", "team"];
+   [Home]  |  [English Coaching · NZ Academic Bridge] */
+const PRIMARY_IDS = ["home"];
 const SERVICE_IDS = ["english", "consultancy"];
 
 export default function Navbar({ current, navigate }) {
@@ -37,7 +37,7 @@ export default function Navbar({ current, navigate }) {
 
   const primaryPages = PAGES.filter((p) => PRIMARY_IDS.includes(p.id));
   const servicePages = PAGES.filter((p) => SERVICE_IDS.includes(p.id));
-  const allNavPages = PAGES.filter((p) => p.id !== "contact");
+  const allNavPages = PAGES.filter((p) => p.id !== "contact" && p.id !== "team");
 
   return (
     <nav
@@ -92,12 +92,6 @@ export default function Navbar({ current, navigate }) {
           >
             <PhoneIcon className="w-4 h-4" /> {CONTACTS.phone}
           </a>
-          <button
-            onClick={() => navigate("contact")}
-            className="hidden lg:inline-flex items-center gap-1.5 bg-lime hover:bg-[#7ab135] text-navy text-sm font-bold px-5 py-2.5 rounded-full transition-all shadow-[0_0_15px_rgba(140,198,63,0.3)] hover:shadow-[0_0_25px_rgba(140,198,63,0.6)]"
-          >
-            Contact Us
-          </button>
 
           <button
             className="lg:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
@@ -142,12 +136,6 @@ export default function Navbar({ current, navigate }) {
               >
                 <PhoneIcon className="w-4 h-4" /> {CONTACTS.phone}
               </a>
-              <button
-                onClick={() => { navigate("contact"); setMenuOpen(false); }}
-                className="w-full bg-lime hover:bg-[#7ab135] text-navy text-sm font-bold px-4 py-3 rounded-xl transition-colors"
-              >
-                Contact Us →
-              </button>
             </div>
           </div>
         </div>
