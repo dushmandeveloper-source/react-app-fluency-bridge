@@ -25,7 +25,7 @@ function ConstructionTitle({ line1, line2 }) {
         {line2.split(" ").map((word, i) => (
           <span
             key={i}
-            className="animate-construction-rise text-shimmer mr-3"
+            className="animate-construction-rise-shimmer mr-3"
             style={{ animationDelay: `${0.1 + (line1Words + i) * 0.12}s` }}
           >
             {word}
