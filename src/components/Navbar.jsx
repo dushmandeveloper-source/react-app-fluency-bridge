@@ -52,9 +52,14 @@ export default function Navbar({ current, navigate }) {
         {/* Logo */}
         <button
           onClick={() => navigate("home")}
-          className="flex items-center flex-shrink-0 focus:outline-none"
+          className="relative flex items-center flex-shrink-0 focus:outline-none"
           aria-label="Home"
         >
+          <span
+            className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-white animate-pulse"
+            style={{ boxShadow: "0 0 8px 2px rgba(255,255,255,0.9), 0 0 16px 4px rgba(255,255,255,0.5)" }}
+            aria-hidden="true"
+          />
           <img
             src="/logo1.png"
             alt="Fluency Bridge"
