@@ -38,7 +38,10 @@ function ConstructionTitle({ line1, line2 }) {
 
 export default function UnderConstruction({ pageName }) {
   return (
-    <div className="relative bg-navy min-h-screen flex items-center overflow-hidden px-4 md:px-8 lg:px-12 py-32">
+    <div
+      className="relative bg-navy flex items-center overflow-hidden px-4 md:px-8 lg:px-12 pt-32 pb-20 -mt-20"
+      style={{ minHeight: "calc(100vh + 5rem)" }}
+    >
       <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-lime/20 blur-[150px] pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-navy-mid/80 blur-[120px] pointer-events-none" />
 
