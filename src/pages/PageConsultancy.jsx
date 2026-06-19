@@ -46,7 +46,7 @@ export default function PageConsultancy({ navigate }) {
               Your <span className="text-green-400">zero-cost</span>, fully compliant pathway to New Zealand<span className="bounce-dot">.</span>
             </h1>
             <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed">
-              Expert university placement, career coaching and relocation strategy — engineered by professionals.
+              Expert university placement, career coaching and relocation strategy driven by professionals.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <button
