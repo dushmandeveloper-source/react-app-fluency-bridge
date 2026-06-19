@@ -253,7 +253,7 @@ export default function PageHome({ navigate }) {
             </div>
 
             <AnimatedSubtitle
-              text="Premium English Coaching and Ethical New Zealand Education Consultancy — engineered by industry professionals who have walked the path themselves."
+              text="Premium English Coaching and Ethical New Zealand Education Consultancy — engineered by industry professionals."
               className="opacity-0 animate-fade-in-up delay-200 text-lg text-white/80 mb-10 leading-relaxed pr-8 font-medium"
             />
 
