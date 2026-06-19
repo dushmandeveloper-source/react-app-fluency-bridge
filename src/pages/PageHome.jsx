@@ -306,7 +306,7 @@ export default function PageHome({ navigate }) {
               One parent infrastructure.<br />Two <span className="text-lime font-serif italic font-normal animate-pulse">specialised</span> crossings.
             </h2>
             <p className="text-white/70 font-medium">
-              Fluency Bridge Global Limited is a New Zealand-based, service-oriented enterprise that bridges regional potential and global success through two distinct, professionally operated branches.
+              Fluency Bridge Global Limited is a premier New Zealand-based, service-oriented enterprise. We bridge the gap between regional potential and global success through our parent corporate infrastructure, managing two distinct, specialized operational branches:
             </p>
           </div>
 
