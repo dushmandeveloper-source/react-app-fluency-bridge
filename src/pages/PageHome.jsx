@@ -330,7 +330,7 @@ export default function PageHome({ navigate }) {
                 </div>
                 <h3 className="text-3xl font-extrabold mb-4 text-white">Fluency Bridge</h3>
                 <p className="text-white/80 leading-relaxed mb-8 font-medium">
-                  High-performance English communication coaching for professionals and international students, built on the Natural English Method. Stop learning about English. Start executing it.
+                  Our elite frontline program focusing on high-performance English communication coaching for professionals and international students following the Natural English Method.
                 </p>
                 <button
                   onClick={() => navigate("english")}
@@ -360,7 +360,7 @@ export default function PageHome({ navigate }) {
                 </div>
                 <h3 className="text-3xl font-extrabold mb-4 text-white">NZ Academic Bridge</h3>
                 <p className="text-white/80 leading-relaxed mb-8 font-medium">
-                  Zero-cost, fully compliant university placement, career coaching and relocation strategy for international students — engineered end-to-end by professionals who made the move themselves.
+                  Our specialized, dedicated branding branch specifically established to execute all international student recruitment, expert tertiary placement, and career transition consultancy services.
                 </p>
                 <button
                   onClick={() => navigate("consultancy")}
